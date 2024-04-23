@@ -18,10 +18,10 @@ public class Tests
         double denominator = 5;
 
         //act
-        double divisionResult = calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = calculator.Divide(numerator, denominator);
 
         //assert
-        Assert.That(divisionResult, Is.EqualTo(numerator/denominator));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
     }
 
     [Test]
@@ -33,10 +33,10 @@ public class Tests
         double denominator = 5;
 
         //act
-        double divisionResult = calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = calculator.Divide(numerator, denominator);
 
         //assert
-        Assert.That(divisionResult, Is.EqualTo(numerator/denominator));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
     }
 
     [Test]
@@ -48,10 +48,10 @@ public class Tests
         double denominator = 1.3;
 
         //act
-        double divisionResult = calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = calculator.Divide(numerator, denominator);
 
         //assert
-        Assert.That(divisionResult, Is.EqualTo(numerator/denominator));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
     }
 
     [Test]
@@ -61,13 +61,12 @@ public class Tests
         CalculatorFunctions calculator = new CalculatorFunctions();
         double numerator = 10;
         double denominator = 0;
-        double infinity = Double.PositiveInfinity;
 
         //act
-        double divisionResult = calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = calculator.Divide(numerator, denominator);
 
         //assert
-        Assert.That(divisionResult, Is.EqualTo(numerator/denominator));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
     }
 
     [Test]
@@ -80,10 +79,10 @@ public class Tests
         double negInfinity = Double.NegativeInfinity;
         
         //act
-        double divisionResult = calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = calculator.Divide(numerator, denominator);
         
         //assert
-        Assert.That(divisionResult, Is.EqualTo(negInfinity));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(negInfinity));
     }
 
 }
