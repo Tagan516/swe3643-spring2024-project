@@ -36,16 +36,17 @@ public class CalculatorFunctions
     {
         //preq-ENGINE-7
         var finalResults = new CalculationResult();
-
+        finalResults.SetTwoOperandExpression("/", numerator, denominator, finalResults.GetResult());
+        
         if (denominator == 0)
         {
+            finalResults.SetResult((numerator / denominator));
             finalResults.SetError("Division by zero.");
             finalResults.SetIsSuccess(false);
             return finalResults;
         }
         
         finalResults.SetResult(numerator / denominator);
-        finalResults.SetTwoOperandExpression("/", numerator, denominator, finalResults.GetResult());
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
