@@ -22,7 +22,7 @@ public class CalculationResult
         IsSuccess = success;
     }
 
-    public bool GetSuccess()
+    public bool GetIsSuccess()
     {
         return IsSuccess;
     }
@@ -57,5 +57,35 @@ public class CalculationResult
     public string GetError()
     {
         return Error;
+    }
+    /// <summary>
+    /// This function simply checks if a result that is passed to it is NaN or Pos/Neg Infinity, and returns true if
+    /// the result passed is NaN or Pos/Neg Infinity. Returns false otherwise.
+    /// </summary>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public bool IsNotValidNumber(double number)
+    {
+        if (Double.IsNaN(number) || Double.IsInfinity(number))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+    /// <summary>
+    /// Checks if the result of the object this function is called on is a valid number. If the result is Infinity or NaN
+    /// returns true, otherwise returns false.
+    /// </summary>
+    /// <returns></returns>
+    public bool IsNotValidNumber()
+    {
+        if (Double.IsNaN(Result) || Double.IsInfinity(Result))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -8,6 +8,14 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(firstNumber + secondNumber);
         finalResults.SetTwoOperandExpression("+", firstNumber, secondNumber, finalResults.GetResult());
+        
+        if (finalResults.IsNotValidNumber(finalResults.GetResult()))
+        {
+            finalResults.SetError("Answer is undefined.");
+            finalResults.SetIsSuccess(false);
+            return finalResults;
+        }
+        
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
@@ -18,6 +26,13 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(firstNumber - secondNumber);
         finalResults.SetTwoOperandExpression("-", firstNumber, secondNumber, finalResults.GetResult());
+
+        if (finalResults.IsNotValidNumber(finalResults.GetResult()))
+        {
+            finalResults.SetError("Answer is undefined.");
+            finalResults.SetIsSuccess(false);
+            return finalResults;
+        }
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
@@ -28,6 +43,13 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(firstNumber * secondNumber);
         finalResults.SetTwoOperandExpression("*", firstNumber, secondNumber, finalResults.GetResult());
+
+        if (finalResults.IsNotValidNumber(finalResults.GetResult()))
+        {
+            finalResults.SetIsSuccess(false);
+            finalResults.SetError("Answer is undefined.");
+            return finalResults;
+        }
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
@@ -36,31 +58,45 @@ public class CalculatorFunctions
     {
         //preq-ENGINE-7
         var finalResults = new CalculationResult();
+        finalResults.SetResult((numerator / denominator));
         finalResults.SetTwoOperandExpression("/", numerator, denominator, finalResults.GetResult());
         
-        if (denominator == 0)
+        if (finalResults.IsNotValidNumber(finalResults.GetResult()))
         {
-            finalResults.SetResult((numerator / denominator));
-            finalResults.SetError("Division by zero.");
+            finalResults.SetError("Answer is undefined.");
             finalResults.SetIsSuccess(false);
             return finalResults;
         }
         
-        finalResults.SetResult(numerator / denominator);
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
 
-    public int Equals(double firstNumber, double secondNumber)
+    public CalculationResult Equals(double firstNumber, double secondNumber)
     {
         //preq-ENGINE-8
+        CalculationResult finalResult = new CalculationResult();
+        if (finalResult.IsNotValidNumber(firstNumber) || finalResult.IsNotValidNumber(secondNumber))
+        {
+            finalResult.SetResult(0);
+            finalResult.SetIsSuccess(false);
+            finalResult.SetError("Cannot evaluate equality for these entries.");
+            return finalResult;
+        }
+        
         double precision = 0.00000001;
         if (Math.Abs(firstNumber - secondNumber) < precision)
         {
-            return 1;
+            finalResult.SetResult(1);
+            finalResult.SetIsSuccess(true);
+            finalResult.SetTwoOperandExpression("==", firstNumber, secondNumber, finalResult.GetResult());
+            return finalResult;
         }
-
-        return 0;
+        
+        finalResult.SetResult(0);
+        finalResult.SetIsSuccess(true);
+        finalResult.SetTwoOperandExpression("==", firstNumber, secondNumber, finalResult.GetResult()); 
+        return finalResult;
     }
 
     public CalculationResult RaiseToPower(double baseNumber, double exponent)
@@ -69,6 +105,14 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Pow(baseNumber, exponent));
         finalResults.SetTwoOperandExpression("^", baseNumber, exponent, finalResults.GetResult());
+
+        if (finalResults.IsNotValidNumber(finalResults.GetResult()))
+        {
+            finalResults.SetIsSuccess(false);
+            finalResults.SetError("Answer is undefined.");
+            return finalResults;
+        }
+
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
@@ -79,7 +123,7 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Log(baseNumber, newBase));
         finalResults.SetTwoOperandExpression("log", baseNumber, newBase, finalResults.GetResult());
-        if (Double.IsNaN(finalResults.GetResult()) || Double.IsInfinity(finalResults.GetResult()))
+        if (finalResults.IsNotValidNumber())
         {
             finalResults.SetError("Log cannot be defined.");
             finalResults.SetIsSuccess(false);
@@ -95,7 +139,7 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Pow(radicand, 1 / radical));
         finalResults.SetTwoOperandExpression("^ 1 /", radicand, radical, finalResults.GetResult());
-        if (Double.IsNaN(finalResults.GetResult()) || Double.IsInfinity(finalResults.GetResult()))
+        if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
             finalResults.SetError("Root undefined");
@@ -141,10 +185,11 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Sin(a));
         finalResults.SetSingleOperandExpression("sin", a, finalResults.GetResult());
-        if (Double.IsNaN(finalResults.GetResult()))
+        if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
             finalResults.SetError("Angle is not a number.");
+            return finalResults;
         }
         finalResults.SetIsSuccess(true);
         return finalResults;
@@ -156,10 +201,11 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Cos(a));
         finalResults.SetSingleOperandExpression("cos", a, finalResults.GetResult());
-        if (Double.IsNaN(finalResults.GetResult()))
+        if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
             finalResults.SetError("Angle is not a number.");
+            return finalResults;
         }
         finalResults.SetIsSuccess(true);
         return finalResults;
@@ -171,10 +217,11 @@ public class CalculatorFunctions
         var finalResults = new CalculationResult();
         finalResults.SetResult(Math.Tan(a));
         finalResults.SetSingleOperandExpression("tan", a, finalResults.GetResult());
-        if (Double.IsNaN(finalResults.GetResult()))
+        if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
             finalResults.SetError("Angle is not a number.");
+            return finalResults;
         }
         finalResults.SetIsSuccess(true);
         return finalResults;
@@ -184,16 +231,15 @@ public class CalculatorFunctions
     {
         //preq-ENGINE-16
         var finalResults = new CalculationResult();
-        finalResults.SetDirectExpression("Reciprocal of " + a);
-        if (a == 0)
+        finalResults.SetResult((1.0d / a));
+        finalResults.SetDirectExpression("Reciprocal of " + a + " = " + finalResults.GetResult());
+        if (finalResults.IsNotValidNumber())
         {
-            finalResults.SetResult(Double.NaN);
             finalResults.SetIsSuccess(false);
-            finalResults.SetError("Cannot divide by zero.");
+            finalResults.SetError("Reciprocal is undefined.");
             return finalResults;
         }
         
-        finalResults.SetResult((1 / a));
         finalResults.SetIsSuccess(true);
         return finalResults;
     }
