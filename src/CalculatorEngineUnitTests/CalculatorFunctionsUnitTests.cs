@@ -5,10 +5,6 @@ namespace CalculatorEngineUnitTests;
 public class Tests
 {
     private readonly CalculatorFunctions _calculator = new CalculatorFunctions();
-    [SetUp]
-    public void Setup()
-    {
-    }
 
     [Test]
     public void Divide_TwoPositiveWholeNumbers_ReturnsCorrectAnswer()
@@ -490,7 +486,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Double.PositiveInfinity));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(false));
-            Assert.That(result.GetError(), Is.EqualTo("Root undefined"));
+            Assert.That(result.GetError(), Is.EqualTo("Root undefined. Not a number."));
         });
     }
 
@@ -706,7 +702,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Double.PositiveInfinity));
             Assert.That(result.GetIsSuccess, Is.EqualTo(false));
-            Assert.That(result.GetError(), Is.EqualTo("Reciprocal is undefined."));
+            Assert.That(result.GetError(), Is.EqualTo("Reciprocal is undefined. Not a number."));
         });
     }
 }
