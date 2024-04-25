@@ -13,9 +13,11 @@ public class Tests
     [Test]
     public void Divide_TwoPositiveWholeNumbers_ReturnsCorrectAnswer()
     {
+        //preq-UNIT-TEST-5
+        
         //arrange
-        double numerator = 25;
-        double denominator = 5;
+        double numerator = 25.0d;
+        double denominator = 5.0d;
 
         //act
         CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
@@ -27,9 +29,11 @@ public class Tests
     [Test]
     public void Divide_NegativeDivisionWithWholeNumbers_ReturnsCorrectAnswer()
     {
+        //preq-UNIT-TEST-5
+        
         //arrange
-        double numerator = -25;
-        double denominator = 5;
+        double numerator = -25.0d;
+        double denominator = 5.0d;
 
         //act
         CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
@@ -41,9 +45,11 @@ public class Tests
     [Test]
     public void Divide_PositiveFloatingPointDivision_ReturnsCorrectAnswer()
     {
+        //preq-UNIT-TEST-5
+        
         //arrange
-        double numerator = 5.74;
-        double denominator = 1.3;
+        double numerator = 5.74d;
+        double denominator = 1.3d;
 
         //act
         CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
@@ -55,9 +61,11 @@ public class Tests
     [Test]
     public void Divide_DivisionByZero_ReturnsPositiveInfinity()
     {
+        //preq-UNIT-TEST-6
+        
         //arrange
-        double numerator = 10;
-        double denominator = 0;
+        double numerator = 10.0d;
+        double denominator = 0.0d;
 
         //act
         CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
@@ -69,9 +77,10 @@ public class Tests
     [Test]
     public void Divide_NegativeDivisionByZero_ReturnsNegativeInfinity()
     {
+        //preq-UNIT-TEST-6
         //arrange
-        double numerator = -5;
-        double denominator = 0;
+        double numerator = -5.0d;
+        double denominator = 0.0d;
         double negInfinity = Double.NegativeInfinity;
         
         //act
@@ -84,9 +93,11 @@ public class Tests
     [Test]
     public void Add_TwoValidNumbers_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-2
+        
         //arrange
-        double firstNumber = 3.75;
-        double secondNumber = 5.25;
+        double firstNumber = 3.75d;
+        double secondNumber = 5.25d;
         
         //act
         CalculationResult additionResult = Calculator.Add(firstNumber, secondNumber);
@@ -98,6 +109,8 @@ public class Tests
     [Test]
     public void Add_ValidNumberAndNaN_ReturnsNaN()
     {
+        //preq-UNIT-TEST-2
+        
         //arrange
         double firstNumber = 1.55;
         double secondNumber = Double.NaN;
@@ -112,6 +125,8 @@ public class Tests
     [Test]
     public void Add_ValidNumberAndInfinity_ReturnsInfinity()
     {
+        //preq-UNIT-TEST-2
+        
         //arrange
         double firstNumber = 2.2222;
         double secondNumber = Double.PositiveInfinity;
@@ -126,6 +141,8 @@ public class Tests
     [Test]
     public void Add_PosAndNegInfinity_ReturnsNaN()
     {
+        //preq-UNIT-TEST-2
+        
         //arrange
         double firstNumber = Double.NegativeInfinity;
         double secondNumber = Double.PositiveInfinity;
@@ -154,6 +171,8 @@ public class Tests
     [Test]
     public void Subtract_ValidNumberAndInfinity_ReturnsInfinity()
     {
+        //preq-UNIT-TEST-3
+        
         //arrange
         double firstNumber = 4.8991;
         double secondNumber = Double.PositiveInfinity;
@@ -175,6 +194,8 @@ public class Tests
     [Test]
     public void Subtract_ValidNumberAndNaN_ReturnsNan()
     {
+        //preq-UNIT-TEST-3
+        
         //arrange
         double firstNumber = 5.82;
         double secondNumber = Double.NaN;
@@ -194,6 +215,8 @@ public class Tests
     [Test]
     public void Multiply_TwoValidNumbers_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-4
+        
         //arrange
         double firstNumber = 5.44;
         double secondNumber = 2.56;
@@ -214,6 +237,8 @@ public class Tests
     [Test]
     public void Multiply_ValidNumberAndInfinity_ReturnsInfinity()
     {
+        //preq-UNIT-TEST-4
+        
         //arrange
         double firstTestNumber = 4.50;
         double secondTestNumber = 8.1;
@@ -244,6 +269,8 @@ public class Tests
     [Test]
     public void Equals_TwoEqualNumbers_ReturnsOne()
     {
+        //preq-UNIT-TEST-7
+        
         //arrange
         double firstNumber = 5.12345678910;
         double secondNumber = 5.12345678109;
@@ -263,6 +290,8 @@ public class Tests
     [Test]
     public void Equals_TwoNotEqualNumbers_ReturnsZero()
     {
+        //preq-UNIT-TEST-7
+        
         //arrange
         double firstNumber = 1.12345678910;
         double secondNumber = 1.12345687910;
@@ -282,6 +311,8 @@ public class Tests
     [Test]
     public void Equals_InvalidNumber_ReturnsZeroAndError()
     {
+        //preq-UNIT-TEST-7
+        
         //arrange
         double firstNumber = Double.NaN;
         double secondNumber = 14.5656737;
@@ -301,6 +332,8 @@ public class Tests
     [Test]
     public void RaiseToPower_TwoValidNumbers_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-8
+        
         //arrange
         double baseNumber = 5.0;
         double exponent = 2.0;
@@ -320,6 +353,8 @@ public class Tests
     [Test]
     public void RaiseToPower_InvalidNumber_ReturnsError()
     {
+        //preq-UNIT-TEST-8
+        
         //arrange
         double firstBaseNumber = Double.NaN;
         double secondBaseNumber = Double.NegativeInfinity;
@@ -356,6 +391,8 @@ public class Tests
     [Test]
     public void LogOfNumber_TwoValidNumbers_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-9
+        
         //arrange
         double baseNumber = 8.0d;
         double newBase = 2.0d;
@@ -374,11 +411,34 @@ public class Tests
     }
 
     [Test]
+    public void LogOfNumber_InvalidBaseNumber_ReturnsError()
+    {
+        //preq-UNIT-TEST-10
+        
+        //arrange
+        double baseNumber = 0.0d;
+        double newBase = 2.0d;
+        
+        //act
+        CalculationResult result = Calculator.LogOfNumber(baseNumber, newBase);
+        
+        //assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.GetResult(), Is.EqualTo(Double.NegativeInfinity));
+            Assert.That(result.GetIsSuccess(), Is.EqualTo(false));
+            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " = " + result.GetResult()));
+        });
+    }
+    
+    [Test]
     public void LogOfNumber_InvalidNewBaseNumber_ReturnsError()
     {
+        //preq-UNIT-TEST-11
+        
         //arrange
         double baseNumber = 8.0d;
-        double newBase = Double.NaN;
+        double newBase = 0.0d;
         
         //act
         CalculationResult result = Calculator.LogOfNumber(baseNumber, newBase);
@@ -395,6 +455,8 @@ public class Tests
     [Test]
     public void RootOfNumber_TwoValidNumbers_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-12
+        
         //arrange
         double radicand = 25.0d;
         double radical = 2.0d;
@@ -414,6 +476,8 @@ public class Tests
     [Test]
     public void RootOfNumber_OneInvalidNumber_ReturnsError()
     {
+        //preq-UNIT-TEST-13
+        
         //arrange
         double radicand = 25.0d;
         double radical = 0.0d;
@@ -433,6 +497,8 @@ public class Tests
     [Test]
     public void Factorial_ValidNumber_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-14
+        
         //arrange
         double factorial = 5.1d;
         int roundedFactorial = (int)Math.Round(factorial);
@@ -452,9 +518,10 @@ public class Tests
     [Test]
     public void Factorial_InvalidNegativeNumber_ReturnsError()
     {
+        //preq-UNIT-TEST-14
+        
         //arrange
         double factorial = -5.0d;
-        int roundedFactorial = (int)Math.Round(factorial);
         
         //act
         CalculationResult result = Calculator.Factorial(factorial);
@@ -464,10 +531,30 @@ public class Tests
         Assert.That(result.GetIsSuccess, Is.EqualTo(false));
         Assert.That(result.GetError(), Is.EqualTo("Factorials of negative numbers are undefined."));
     }
+    
+    [Test]
+    public void Factorial_Convention_ReturnsOne()
+    {
+        //preq-UNIT-TEST-15
+        
+        //arrange
+        double factorial = 0.0d;
+        int roundedFactorial = (int)Math.Round(factorial);
+        
+        //act
+        CalculationResult result = Calculator.Factorial(factorial);
+        
+        //assert
+        Assert.That(result.GetResult(), Is.EqualTo(1.0d));
+        Assert.That(result.GetIsSuccess, Is.EqualTo(true));
+        Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "!"));
+    }
 
     [Test]
     public void Sine_ValidNumber_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-16
+        
         //arrange
         double angle = 90.0d;
         
@@ -486,6 +573,8 @@ public class Tests
     [Test]
     public void Sine_InvalidNumber_ReturnsError()
     {
+        //preq-UNIT-TEST-16
+        
         //arrange
         double angle = Double.NaN;
         
@@ -504,6 +593,8 @@ public class Tests
     [Test]
     public void Cosine_ValidAngle_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-17
+        
         //arrange
         double angle = 450.0d;
         
@@ -522,6 +613,8 @@ public class Tests
     [Test]
     public void Cosine_InvalidAngle_ReturnsError()
     {
+        //preq-UNIT-TEST-17
+        
         //arrange
         double angle = Double.NaN;
         
@@ -540,6 +633,8 @@ public class Tests
     [Test]
     public void Tangent_ValidAngle_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-18
+        
         //arrange
         double angle = 450.0d;
         
@@ -558,6 +653,8 @@ public class Tests
     [Test]
     public void Tangent_InvalidAngle_ReturnsError()
     {
+        //preq-UNIT-TEST-18
+        
         //arrange
         double angle = Double.NaN;
         
@@ -576,6 +673,8 @@ public class Tests
     [Test]
     public void Reciprocal_ValidNumber_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-19
+        
         //arrange
         double number = 5.0d;
         
@@ -594,6 +693,8 @@ public class Tests
     [Test]
     public void Reciprocal_invalidNumber_ReturnsAnswer()
     {
+        //preq-UNIT-TEST-20
+        
         //arrange
         double number = 0.0d;
         

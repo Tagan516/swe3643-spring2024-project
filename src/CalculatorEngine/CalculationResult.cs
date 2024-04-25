@@ -29,13 +29,13 @@ public class CalculationResult
 
     public void SetTwoOperandExpression(string operation, double firstNumber, double secondNumber, double result)
     {
-        var fullExpression = "" + firstNumber + " " + operation + " " + secondNumber + " = " + result;
+        var fullExpression = "" + firstNumber + " " + operation + " " + secondNumber + " =\n" + result;
         Expression = fullExpression;
     }
 
     public void SetSingleOperandExpression(string operation, double number, double result)
     {
-        var fullExpression = operation + "(" + number + ") = " + result;
+        var fullExpression = operation + "(" + number + ") =\n" + result;
         Expression = fullExpression;
     }
 

@@ -1,11 +1,11 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWebServerApp", "CalculatorWebServerApp\CalculatorWebServerApp.csproj", "{078DDA50-0BF7-4787-AB4F-7A429390E8BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorEngine", "CalculatorEngine\CalculatorEngine.csproj", "{1FD73FDA-BFF1-4835-931A-684F75B50DDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorEngineUnitTests", "CalculatorEngineUnitTests\CalculatorEngineUnitTests.csproj", "{BF8F52C2-01E7-4027-B32B-42C313D3D60E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorEndToEndTests", "CalculatorEndToEndTests\CalculatorEndToEndTests.csproj", "{240E3F3D-F7D6-4AD1-94EE-C0AF2AC0AC69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWebApp", "CalculatorWebApp\CalculatorWebApp.csproj", "{A073EE02-63A0-41E5-AECF-B0BCA2B7D642}"
 EndProject
 Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -21,10 +21,10 @@ Global
 		{BF8F52C2-01E7-4027-B32B-42C313D3D60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8F52C2-01E7-4027-B32B-42C313D3D60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8F52C2-01E7-4027-B32B-42C313D3D60E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{078DDA50-0BF7-4787-AB4F-7A429390E8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{078DDA50-0BF7-4787-AB4F-7A429390E8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{078DDA50-0BF7-4787-AB4F-7A429390E8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{078DDA50-0BF7-4787-AB4F-7A429390E8BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A073EE02-63A0-41E5-AECF-B0BCA2B7D642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A073EE02-63A0-41E5-AECF-B0BCA2B7D642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A073EE02-63A0-41E5-AECF-B0BCA2B7D642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A073EE02-63A0-41E5-AECF-B0BCA2B7D642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
