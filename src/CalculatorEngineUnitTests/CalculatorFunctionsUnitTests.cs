@@ -2,7 +2,7 @@ using CalculatorEngine;
 namespace CalculatorEngineUnitTests;
 
 
-public class Tests
+public class Tests 
 {
     private readonly CalculatorFunctions _calculator = new CalculatorFunctions();
 
@@ -62,12 +62,13 @@ public class Tests
         //arrange
         double numerator = 10.0d;
         double denominator = 0.0d;
+        double expectedResult = Double.PositiveInfinity;
 
         //act
         CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
 
         //assert
-        Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
+        Assert.That(divisionResult.GetResult(), Is.EqualTo(expectedResult));
     }
 
     [Test]
