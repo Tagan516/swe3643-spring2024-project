@@ -44,7 +44,7 @@
             },
             "Microsoft.Playwright.NUnit": {
               "target": "Package",
-              "version": "[1.27.1, )"
+              "version": "[1.43.0, )"
             },
             "NUnit": {
               "target": "Package",

@@ -22,8 +22,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/tagan/Documents/SchoolFiles/SoftwareTestingQA/SemesterProject/WebApp/swe3643-spring2024-project/src/CalculatorWebApp/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
+[/Users/tagan/Documents/SchoolFiles/SoftwareTestingQA/SemesterProject/WebApp/swe3643-spring2024-project/src/CalculatorWebApp/Components/Pages/Calculator.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9DYWxjdWxhdG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/tagan/Documents/SchoolFiles/SoftwareTestingQA/SemesterProject/WebApp/swe3643-spring2024-project/src/CalculatorWebApp/Components/Routes.razor]

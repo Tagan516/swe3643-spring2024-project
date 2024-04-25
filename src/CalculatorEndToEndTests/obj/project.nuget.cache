@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "so/StkCeir5Ih3+GqmwPck8An5LyDG0RUgb/NuI38Q+owQcmwr6Zvv2LpbeDfuaHbFAFgBygU5YIFehB8Gk/Ww==",
+  "dgSpecHash": "7Om+BLUKYMHUXodJPMBzm9em08Hm5hvP8qOwpxeb/iIRAhQ+JXkKHJqiidl55n4S2OfrQevQ9Wrpqoel/j0G5Q==",
   "success": true,
   "projectFilePath": "/Users/tagan/Documents/SchoolFiles/SoftwareTestingQA/SemesterProject/WebApp/swe3643-spring2024-project/src/CalculatorEndToEndTests/CalculatorEndToEndTests.csproj",
   "expectedPackageFiles": [
@@ -9,9 +9,9 @@
     "/Users/tagan/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/microsoft.net.test.sdk/17.6.0/microsoft.net.test.sdk.17.6.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/Users/tagan/.nuget/packages/microsoft.playwright/1.27.1/microsoft.playwright.1.27.1.nupkg.sha512",
-    "/Users/tagan/.nuget/packages/microsoft.playwright.nunit/1.27.1/microsoft.playwright.nunit.1.27.1.nupkg.sha512",
-    "/Users/tagan/.nuget/packages/microsoft.playwright.testadapter/1.27.1/microsoft.playwright.testadapter.1.27.1.nupkg.sha512",
+    "/Users/tagan/.nuget/packages/microsoft.playwright/1.43.0/microsoft.playwright.1.43.0.nupkg.sha512",
+    "/Users/tagan/.nuget/packages/microsoft.playwright.nunit/1.43.0/microsoft.playwright.nunit.1.43.0.nupkg.sha512",
+    "/Users/tagan/.nuget/packages/microsoft.playwright.testadapter/1.43.0/microsoft.playwright.testadapter.1.43.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/microsoft.testplatform.testhost/17.6.0/microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
@@ -24,7 +24,7 @@
     "/Users/tagan/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/tagan/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
-    "/Users/tagan/.nuget/packages/system.text.json/6.0.5/system.text.json.6.0.5.nupkg.sha512"
+    "/Users/tagan/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

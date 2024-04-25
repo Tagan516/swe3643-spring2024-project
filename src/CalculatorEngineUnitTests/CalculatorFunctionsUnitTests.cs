@@ -4,7 +4,7 @@ namespace CalculatorEngineUnitTests;
 
 public class Tests
 {
-    public CalculatorFunctions Calculator = new CalculatorFunctions();
+    private readonly CalculatorFunctions _calculator = new CalculatorFunctions();
     [SetUp]
     public void Setup()
     {
@@ -20,7 +20,7 @@ public class Tests
         double denominator = 5.0d;
 
         //act
-        CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
 
         //assert
         Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
@@ -36,7 +36,7 @@ public class Tests
         double denominator = 5.0d;
 
         //act
-        CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
 
         //assert
         Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
@@ -52,7 +52,7 @@ public class Tests
         double denominator = 1.3d;
 
         //act
-        CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
 
         //assert
         Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
@@ -68,7 +68,7 @@ public class Tests
         double denominator = 0.0d;
 
         //act
-        CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
 
         //assert
         Assert.That(divisionResult.GetResult(), Is.EqualTo(numerator/denominator));
@@ -84,7 +84,7 @@ public class Tests
         double negInfinity = Double.NegativeInfinity;
         
         //act
-        CalculationResult divisionResult = Calculator.Divide(numerator, denominator);
+        CalculationResult divisionResult = _calculator.Divide(numerator, denominator);
         
         //assert
         Assert.That(divisionResult.GetResult(), Is.EqualTo(negInfinity));
@@ -100,7 +100,7 @@ public class Tests
         double secondNumber = 5.25d;
         
         //act
-        CalculationResult additionResult = Calculator.Add(firstNumber, secondNumber);
+        CalculationResult additionResult = _calculator.Add(firstNumber, secondNumber);
         
         //assert
         Assert.That(additionResult.GetResult(), Is.EqualTo(firstNumber + secondNumber));
@@ -116,7 +116,7 @@ public class Tests
         double secondNumber = Double.NaN;
         
         //act
-        CalculationResult additionResult = Calculator.Add(firstNumber, secondNumber);
+        CalculationResult additionResult = _calculator.Add(firstNumber, secondNumber);
         
         //assert
         Assert.That(additionResult.GetResult(), Is.EqualTo(firstNumber + secondNumber));
@@ -132,7 +132,7 @@ public class Tests
         double secondNumber = Double.PositiveInfinity;
         
         //act
-        CalculationResult additionResult = Calculator.Add(firstNumber, secondNumber);
+        CalculationResult additionResult = _calculator.Add(firstNumber, secondNumber);
         
         //assert
         Assert.That(additionResult.GetResult(), Is.EqualTo(firstNumber + secondNumber));
@@ -148,7 +148,7 @@ public class Tests
         double secondNumber = Double.PositiveInfinity;
         
         //act
-        CalculationResult additionResult = Calculator.Add(firstNumber, secondNumber);
+        CalculationResult additionResult = _calculator.Add(firstNumber, secondNumber);
         
         //assert
         Assert.That(additionResult.GetResult(), Is.EqualTo(Double.NaN));
@@ -162,7 +162,7 @@ public class Tests
         double secondNumber = 9.22;
         
         //act
-        CalculationResult subtractionResult = Calculator.Subtract(firstNumber, secondNumber);
+        CalculationResult subtractionResult = _calculator.Subtract(firstNumber, secondNumber);
         
         //assert
         Assert.That(subtractionResult.GetResult(), Is.EqualTo(firstNumber - secondNumber));
@@ -179,7 +179,7 @@ public class Tests
         double expectedAnswer = Double.NegativeInfinity;
         
         //act
-        CalculationResult subtractionResult = Calculator.Subtract(firstNumber, secondNumber);
+        CalculationResult subtractionResult = _calculator.Subtract(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -201,7 +201,7 @@ public class Tests
         double secondNumber = Double.NaN;
         
         //act
-        CalculationResult subtractionResult = Calculator.Subtract(firstNumber, secondNumber);
+        CalculationResult subtractionResult = _calculator.Subtract(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -222,7 +222,7 @@ public class Tests
         double secondNumber = 2.56;
         
         //act
-        CalculationResult multiplyResult = Calculator.Multiply(firstNumber, secondNumber);
+        CalculationResult multiplyResult = _calculator.Multiply(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -246,8 +246,8 @@ public class Tests
         Double negInfinity = Double.NegativeInfinity;
         
         //act
-        CalculationResult firstMultiplyResult = Calculator.Multiply(firstTestNumber, posInfinity);
-        CalculationResult secondMultiplyResult = Calculator.Multiply(secondTestNumber, negInfinity);
+        CalculationResult firstMultiplyResult = _calculator.Multiply(firstTestNumber, posInfinity);
+        CalculationResult secondMultiplyResult = _calculator.Multiply(secondTestNumber, negInfinity);
         
         //assert
         Assert.Multiple(() =>
@@ -276,7 +276,7 @@ public class Tests
         double secondNumber = 5.12345678109;
         
         //act
-        CalculationResult result = Calculator.Equals(firstNumber, secondNumber);
+        CalculationResult result = _calculator.Equals(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -297,7 +297,7 @@ public class Tests
         double secondNumber = 1.12345687910;
         
         //act
-        CalculationResult result = Calculator.Equals(firstNumber, secondNumber);
+        CalculationResult result = _calculator.Equals(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -318,7 +318,7 @@ public class Tests
         double secondNumber = 14.5656737;
         
         //act
-        CalculationResult result = Calculator.Equals(firstNumber, secondNumber);
+        CalculationResult result = _calculator.Equals(firstNumber, secondNumber);
         
         //assert
         Assert.Multiple(() =>
@@ -339,7 +339,7 @@ public class Tests
         double exponent = 2.0;
         
         //act
-        CalculationResult result = Calculator.RaiseToPower(baseNumber, exponent);
+        CalculationResult result = _calculator.RaiseToPower(baseNumber, exponent);
         
         //assert
         Assert.Multiple(() =>
@@ -364,9 +364,9 @@ public class Tests
         double thirdExponent = Double.NaN;
         
         //act
-        CalculationResult firstResult = Calculator.RaiseToPower(firstBaseNumber, firstExponent);
-        CalculationResult secondResult = Calculator.RaiseToPower(secondBaseNumber, secondExponent);
-        CalculationResult thirdResult = Calculator.RaiseToPower(thirdBaseNumber, thirdExponent);
+        CalculationResult firstResult = _calculator.RaiseToPower(firstBaseNumber, firstExponent);
+        CalculationResult secondResult = _calculator.RaiseToPower(secondBaseNumber, secondExponent);
+        CalculationResult thirdResult = _calculator.RaiseToPower(thirdBaseNumber, thirdExponent);
         
         //assert
         Assert.Multiple(() =>
@@ -399,7 +399,7 @@ public class Tests
         double expectedAnswer = Math.Log(baseNumber, newBase);
         
         //act
-        CalculationResult result = Calculator.LogOfNumber(baseNumber, newBase);
+        CalculationResult result = _calculator.LogOfNumber(baseNumber, newBase);
         
         //assert
         Assert.Multiple(() =>
@@ -420,7 +420,7 @@ public class Tests
         double newBase = 2.0d;
         
         //act
-        CalculationResult result = Calculator.LogOfNumber(baseNumber, newBase);
+        CalculationResult result = _calculator.LogOfNumber(baseNumber, newBase);
         
         //assert
         Assert.Multiple(() =>
@@ -441,7 +441,7 @@ public class Tests
         double newBase = 0.0d;
         
         //act
-        CalculationResult result = Calculator.LogOfNumber(baseNumber, newBase);
+        CalculationResult result = _calculator.LogOfNumber(baseNumber, newBase);
         
         //assert
         Assert.Multiple(() =>
@@ -462,7 +462,7 @@ public class Tests
         double radical = 2.0d;
         
         //act
-        CalculationResult result = Calculator.RootOfNumber(radicand, radical);
+        CalculationResult result = _calculator.RootOfNumber(radicand, radical);
         
         //assert
         Assert.Multiple(() =>
@@ -483,7 +483,7 @@ public class Tests
         double radical = 0.0d;
         
         //act
-        CalculationResult result = Calculator.RootOfNumber(radicand, radical);
+        CalculationResult result = _calculator.RootOfNumber(radicand, radical);
         
         //assert
         Assert.Multiple(() =>
@@ -504,14 +504,14 @@ public class Tests
         int roundedFactorial = (int)Math.Round(factorial);
         
         //act
-        CalculationResult result = Calculator.Factorial(factorial);
+        CalculationResult result = _calculator.Factorial(factorial);
         
         //assert
         Assert.Multiple(() =>
         {
             Assert.That(result.GetResult(), Is.EqualTo(120.0d));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "!"));
+            Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! = " + result.GetResult()));
         });
     }
 
@@ -524,7 +524,7 @@ public class Tests
         double factorial = -5.0d;
         
         //act
-        CalculationResult result = Calculator.Factorial(factorial);
+        CalculationResult result = _calculator.Factorial(factorial);
         
         //assert
         Assert.That(result.GetResult(), Is.EqualTo(0));
@@ -542,12 +542,12 @@ public class Tests
         int roundedFactorial = (int)Math.Round(factorial);
         
         //act
-        CalculationResult result = Calculator.Factorial(factorial);
+        CalculationResult result = _calculator.Factorial(factorial);
         
         //assert
         Assert.That(result.GetResult(), Is.EqualTo(1.0d));
         Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-        Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "!"));
+        Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! = " + result.GetResult()));
     }
 
     [Test]
@@ -559,7 +559,7 @@ public class Tests
         double angle = 90.0d;
         
         //act
-        CalculationResult result = Calculator.Sine(angle);
+        CalculationResult result = _calculator.Sine(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -579,7 +579,7 @@ public class Tests
         double angle = Double.NaN;
         
         //act
-        CalculationResult result = Calculator.Sine(angle);
+        CalculationResult result = _calculator.Sine(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -599,7 +599,7 @@ public class Tests
         double angle = 450.0d;
         
         //act
-        CalculationResult result = Calculator.Cosine(angle);
+        CalculationResult result = _calculator.Cosine(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -619,7 +619,7 @@ public class Tests
         double angle = Double.NaN;
         
         //act
-        CalculationResult result = Calculator.Cosine(angle);
+        CalculationResult result = _calculator.Cosine(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -639,7 +639,7 @@ public class Tests
         double angle = 450.0d;
         
         //act
-        CalculationResult result = Calculator.Tangent(angle);
+        CalculationResult result = _calculator.Tangent(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -659,7 +659,7 @@ public class Tests
         double angle = Double.NaN;
         
         //act
-        CalculationResult result = Calculator.Tangent(angle);
+        CalculationResult result = _calculator.Tangent(angle);
         
         //assert
         Assert.Multiple(() =>
@@ -679,7 +679,7 @@ public class Tests
         double number = 5.0d;
         
         //act
-        CalculationResult result = Calculator.Reciprocal(number);
+        CalculationResult result = _calculator.Reciprocal(number);
         
         //assert
         Assert.Multiple(() =>
@@ -699,7 +699,7 @@ public class Tests
         double number = 0.0d;
         
         //act
-        CalculationResult result = Calculator.Reciprocal(number);
+        CalculationResult result = _calculator.Reciprocal(number);
         
         //assert
         Assert.Multiple(() =>

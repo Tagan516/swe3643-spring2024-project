@@ -1,0 +1,362 @@
+﻿@page "/"
+@using CalculatorEngine
+@rendermode InteractiveServer
+
+<PageTitle>Calculator</PageTitle>
+
+<div class="calculator-container">
+    <div style="width: 80%"><h1>Calculator</h1></div>
+    <div style="width: 80%"><button @onclick="Reset">Clear</button></div>
+    <div class="@ResultBoxClass" title="Output Text"><b>@OutputText</b></div>
+    <div style="width: 80%">
+        <label for="inputA"><b>Input A</b></label><br/>
+        <input placeholder="0" id="inputA" @bind:event="oninput" @bind:get="InputA" @bind:set="SetInputA"/>
+    </div>
+    <div style="width: 80%">
+        <label for="inputB"><b>Input B</b></label><br/>
+        <input placeholder="0" id="inputB" @bind:event="oninput" @bind:get="InputB" @bind:set="SetInputB"/>
+    </div>
+    <div style="width: 80%">
+        <p class="header"><b>A and B</b></p>
+        <button @onclick="Add">A + B</button>
+        <button @onclick="Subtract">A - B</button>
+        <button @onclick="Multiply">A * B</button>
+        <button @onclick="Divide">A / B</button>
+        <button @onclick="Equals">A == B</button>
+        <button @onclick="RaiseToPower">A ^ B</button>
+        <button @onclick="Log">A log B</button>
+        <button @onclick="Root">A root B</button>
+    </div>
+    <div style="width: 80%">
+        <p class="header"><b>A only</b></p>
+        <button @onclick="Factorial">A!</button>
+        <button @onclick="Sine">sinA</button>
+        <button @onclick="Cosine">cosA</button>
+        <button @onclick="Tangent">tanA</button>
+        <button @onclick="Reciprocal">1/A</button>
+    </div>
+</div>
+
+@code
+{
+    private string OutputText { get; set; } = "Enter value(s) below and select an operation.";
+    private string InputA { get; set; } = "0";
+    private string InputB { get; set; } = "0";
+    private string ResultBoxClass { get; set; } = "result-box-success";
+    private readonly CalculatorFunctions _calcFunctions = new();
+    private CalculationResult _calculationResult = new();
+
+    private void SetInputA(string input)
+    {
+        if (String.IsNullOrEmpty(input))
+        {
+            InputA = "0";
+            return;
+        }
+        InputA = input;
+    }
+    
+    private void SetInputB(string input)
+    {
+        if (String.IsNullOrEmpty(input))
+        {
+            InputB = "0";
+            return;
+        }
+        InputB = input;
+    }
+    
+    private void Reset()
+    {
+        SetResultBoxClass(true);
+        OutputText = "Enter value(s) below and select an operation.";
+        InputA = "0";
+        InputB = "0";
+    }
+
+    private void SetResultBoxClass(bool isSuccessState)
+    {
+        if (isSuccessState)
+        {
+            ResultBoxClass = "result-box-success";
+            return;
+        }
+
+        ResultBoxClass = "result-box-error";
+    }
+
+    private void SetOutputText(string message)
+    {
+        OutputText = message;
+    }
+    
+    private bool CheckInput()
+    {
+        //This functions validates input by checking that the ascii value of input text is a number, decimal, or negative sign
+        char[] inputACheck = InputA.ToCharArray();
+        char[] inputBCheck = InputB.ToCharArray();
+        bool inputIsNumber = true;
+        foreach (var inputChar in inputACheck)
+        {
+            int ascii = inputChar;
+            if (ascii < 48 && ascii != 46 && ascii != 45 || ascii > 57)
+            {
+                inputIsNumber = false;
+                return inputIsNumber;
+            }
+        }
+        foreach (var inputChar in inputBCheck)
+        {
+            int ascii = inputChar;
+            if (ascii < 48 && ascii != 46 && ascii != 45|| ascii > 57)
+            {
+                inputIsNumber = false;
+                return inputIsNumber;
+            }
+        }
+
+        return inputIsNumber;
+    }
+
+    private void Add()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " + " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.Add(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Subtract()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " - " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.Subtract(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Multiply()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " * " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.Multiply(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Divide()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " / " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.Divide(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Equals()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " == " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.Equals(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void RaiseToPower()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " ^ " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.RaiseToPower(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Log()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " log " + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.LogOfNumber(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Root()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + " ^ 1/" + InputB + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        double secondNumber = double.Parse(InputB);
+        _calculationResult = _calcFunctions.RootOfNumber(firstNumber, secondNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Factorial()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText(InputA + "! =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        _calculationResult = _calcFunctions.Factorial(firstNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Sine()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText("sin(" + InputA + ") =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        _calculationResult = _calcFunctions.Sine(firstNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Cosine()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText("cos(" + InputA + ") =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        _calculationResult = _calcFunctions.Cosine(firstNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Tangent()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText("tan(" + InputA + ") =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        _calculationResult = _calcFunctions.Tangent(firstNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+    
+    private void Reciprocal()
+    {
+        if (!CheckInput())
+        {
+            SetResultBoxClass(false);
+            SetOutputText("1 / " + InputA + " =\nInvalid input, numbers only");
+            return;
+        }
+        double firstNumber = double.Parse(InputA);
+        _calculationResult = _calcFunctions.Reciprocal(firstNumber);
+        SetResultBoxClass(_calculationResult.GetIsSuccess());
+        SetOutputText(_calculationResult.GetExpression());
+        if (!_calculationResult.GetIsSuccess())
+        {
+            OutputText += "\n" + _calculationResult.GetError();
+        }
+    }
+}

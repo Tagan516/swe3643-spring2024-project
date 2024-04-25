@@ -63,7 +63,7 @@ public class CalculatorFunctions
         
         if (finalResults.IsNotValidNumber(finalResults.GetResult()))
         {
-            finalResults.SetError("Answer is undefined.");
+            finalResults.SetError("Not a Number");
             finalResults.SetIsSuccess(false);
             return finalResults;
         }
@@ -125,7 +125,7 @@ public class CalculatorFunctions
         finalResults.SetTwoOperandExpression("log", baseNumber, newBase, finalResults.GetResult());
         if (finalResults.IsNotValidNumber())
         {
-            finalResults.SetError("Log cannot be defined.");
+            finalResults.SetError("Log cannot be defined. Not a number.");
             finalResults.SetIsSuccess(false);
             return finalResults;
         }
@@ -142,7 +142,7 @@ public class CalculatorFunctions
         if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
-            finalResults.SetError("Root undefined");
+            finalResults.SetError("Root undefined. Not a number.");
             return finalResults;
         }
         finalResults.SetIsSuccess(true);
@@ -167,7 +167,7 @@ public class CalculatorFunctions
         {
             finalResults.SetResult(0);
             finalResults.SetIsSuccess(false);
-            finalResults.SetDirectExpression((a + "! =\n Not a number"));
+            finalResults.SetDirectExpression((a + "! = Not a number"));
             finalResults.SetError("Factorials of negative numbers are undefined.");
             return finalResults;
         }
@@ -232,11 +232,11 @@ public class CalculatorFunctions
         //preq-ENGINE-16
         var finalResults = new CalculationResult();
         finalResults.SetResult((1.0d / a));
-        finalResults.SetDirectExpression("Reciprocal of " + a + " =\n" + finalResults.GetResult());
+        finalResults.SetDirectExpression("Reciprocal of " + a + " = " + finalResults.GetResult());
         if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);
-            finalResults.SetError("Reciprocal is undefined.");
+            finalResults.SetError("Reciprocal is undefined. Not a number.");
             return finalResults;
         }
         
