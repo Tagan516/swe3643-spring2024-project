@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CalculatorWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96ec9b9d3a00406e97b6a170d8257540467b77b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5009bbadb1ac3de08e32742c26350bab7ddaff7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("CalculatorWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CalculatorWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
