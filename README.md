@@ -3,7 +3,7 @@ This repository contains a Calculator web app project that has a web based UI bu
 numerical input from the user and performs basic calculations with the input based on the button clicked by the user.
 Then, the application displays the full mathematical expression along with the answer in the result text output.
 The application also contains unit tests that achieve 100% coverage of the calculator mathematical operations through
-NUnit and performs end-to-end of the Calculator's UI testing through Playwright. The repository also contains a
+NUnit and performs end-to-end testing through the Calculator's UI with Playwright. The repository also contains a
 CalculatorEngine project that contains all the calculator functionality.
 
 ## Table of Contents
@@ -22,7 +22,7 @@ The architecture is meant to be lightly coupled. The CalculatorEngine project co
 references the CalculationResult class to return an object type that is more usable. The CalculatorEngineUnitTests
 project contains a class CalculatorFunctionUnitTests that references the CalculatorFunctions class for testing. 
 The CalculatorWebApp project contains a single blazor page Calculator that references the CalculatorFunctions class
-to perform calculations with user input. The CalculatorEndToEndTests project contains the EndToEndTests class that
+to request calculations from the CalculatorFunctions class. The CalculatorEndToEndTests project contains the EndToEndTests class that
 references the Calculator blazor page through a headless browser to perform end to end testing.
 
 ![Project Architecture Diagram](/ReadmeAssets/CalculatorWebAppArchitecture_TaganWilliamson.png "Project Architecture Diagram")
@@ -91,7 +91,7 @@ Calculator Engine project has 100% coverage.
 
 ![Coverage Snapshot](/ReadmeAssets/Coverage_TaganWilliamson.png "CalculatorEngine Coverage")
 
-## Executing the End to End Tests
+## Executing End to End Tests
 1. Navigate to the CalculatorWebApp directory in terminal/command prompt. (ex: C:\Users\\`user`\\RiderProjects\swe3643-spring2024-project\src\CalculatorWebApp)
 2. Enter command `dotnet run` into the terminal.
 3. Terminal will output the localhost address (should be http://localhost:5113)
