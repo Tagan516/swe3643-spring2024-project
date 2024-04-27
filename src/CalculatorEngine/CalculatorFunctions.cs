@@ -167,14 +167,14 @@ public class CalculatorFunctions
         {
             finalResults.SetResult(0);
             finalResults.SetIsSuccess(false);
-            finalResults.SetDirectExpression((a + "! = Not a number"));
+            finalResults.SetDirectExpression((a + "! =\nNot a number"));
             finalResults.SetError("Factorials of negative numbers are undefined.");
             return finalResults;
         }
         int factorial = (int)Math.Round(a);
         finalResults.SetResult(CalculateFactorial(factorial));
         finalResults.SetIsSuccess(true);
-        finalResults.SetDirectExpression((int)a + "! = " + finalResults.GetResult());
+        finalResults.SetDirectExpression((int)a + "! =\n" + finalResults.GetResult());
 
         return finalResults;
     }
@@ -232,7 +232,7 @@ public class CalculatorFunctions
         //preq-ENGINE-16
         var finalResults = new CalculationResult();
         finalResults.SetResult((1.0d / a));
-        finalResults.SetDirectExpression("Reciprocal of " + a + " = " + finalResults.GetResult());
+        finalResults.SetDirectExpression("Reciprocal of " + a + " =\n" + finalResults.GetResult());
         if (finalResults.IsNotValidNumber())
         {
             finalResults.SetIsSuccess(false);

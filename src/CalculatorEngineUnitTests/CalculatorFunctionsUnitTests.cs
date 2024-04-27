@@ -227,7 +227,7 @@ public class Tests
             Assert.That(multiplyResult.GetResult(), Is.EqualTo(firstNumber * secondNumber));
             Assert.That(multiplyResult.GetIsSuccess(), Is.EqualTo(true));
             Assert.That(multiplyResult.GetError(), Is.EqualTo("None"));
-            Assert.That(multiplyResult.GetExpression(), Is.EqualTo((firstNumber + " * " + secondNumber + " = " + multiplyResult.GetResult())));
+            Assert.That(multiplyResult.GetExpression(), Is.EqualTo((firstNumber + " * " + secondNumber + " =\n" + multiplyResult.GetResult())));
         });
     }
 
@@ -253,13 +253,13 @@ public class Tests
             Assert.That(firstMultiplyResult.GetResult(), Is.EqualTo(Double.PositiveInfinity));
             Assert.That(firstMultiplyResult.GetIsSuccess(), Is.EqualTo(false));
             Assert.That(firstMultiplyResult.GetError(), Is.EqualTo("Answer is undefined."));
-            Assert.That(firstMultiplyResult.GetExpression(), Is.EqualTo(firstTestNumber + " * " + posInfinity + " = " + firstMultiplyResult.GetResult()));
+            Assert.That(firstMultiplyResult.GetExpression(), Is.EqualTo(firstTestNumber + " * " + posInfinity + " =\n" + firstMultiplyResult.GetResult()));
             
             //Assertions for test scenario with negInfinity
             Assert.That(secondMultiplyResult.GetResult(), Is.EqualTo(Double.NegativeInfinity));
             Assert.That(secondMultiplyResult.GetIsSuccess(), Is.EqualTo(false));
             Assert.That(secondMultiplyResult.GetError(), Is.EqualTo("Answer is undefined."));
-            Assert.That(secondMultiplyResult.GetExpression(), Is.EqualTo(secondTestNumber + " * " + negInfinity + " = " + secondMultiplyResult.GetResult()));
+            Assert.That(secondMultiplyResult.GetExpression(), Is.EqualTo(secondTestNumber + " * " + negInfinity + " =\n" + secondMultiplyResult.GetResult()));
         });
     }
 
@@ -280,7 +280,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(1));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(firstNumber + " == " + secondNumber + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(firstNumber + " == " + secondNumber + " =\n" + result.GetResult()));
         });
     }
 
@@ -301,7 +301,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(0));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(firstNumber + " == " + secondNumber + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(firstNumber + " == " + secondNumber + " =\n" + result.GetResult()));
         });
     }
 
@@ -343,7 +343,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(25.0d));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " ^ " + exponent + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " ^ " + exponent + " =\n" + result.GetResult()));
         });
     }
 
@@ -403,7 +403,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(expectedAnswer));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " =\n" + result.GetResult()));
         });
     }
 
@@ -424,7 +424,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Double.NegativeInfinity));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(false));
-            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " =\n" + result.GetResult()));
         });
     }
     
@@ -445,7 +445,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Double.NaN));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(false));
-            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(baseNumber + " log " + newBase + " =\n" + result.GetResult()));
         });
     }
 
@@ -466,7 +466,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(5.0d));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(radicand + " ^ 1 / " + radical + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(radicand + " ^ 1 / " + radical + " =\n" + result.GetResult()));
         });
     }
 
@@ -508,7 +508,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(120.0d));
             Assert.That(result.GetIsSuccess(), Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! =\n" + result.GetResult()));
         });
     }
 
@@ -544,7 +544,7 @@ public class Tests
         //assert
         Assert.That(result.GetResult(), Is.EqualTo(1.0d));
         Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-        Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! = " + result.GetResult()));
+        Assert.That(result.GetExpression(), Is.EqualTo(roundedFactorial + "! =\n" + result.GetResult()));
     }
 
     [Test]
@@ -563,7 +563,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Math.Sin(angle)));
             Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo("sin(" + angle + ") = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo("sin(" + angle + ") =\n" + result.GetResult()));
         });
     }
 
@@ -603,7 +603,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Math.Cos(angle)));
             Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo("cos(" + angle + ") = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo("cos(" + angle + ") =\n" + result.GetResult()));
         });
     }
 
@@ -643,7 +643,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo(Math.Tan(angle)));
             Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo("tan(" + angle + ") = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo("tan(" + angle + ") =\n" + result.GetResult()));
         });
     }
 
@@ -683,7 +683,7 @@ public class Tests
         {
             Assert.That(result.GetResult(), Is.EqualTo((1.0d/number)));
             Assert.That(result.GetIsSuccess, Is.EqualTo(true));
-            Assert.That(result.GetExpression(), Is.EqualTo("Reciprocal of " + number + " = " + result.GetResult()));
+            Assert.That(result.GetExpression(), Is.EqualTo("Reciprocal of " + number + " =\n" + result.GetResult()));
         });
     }
     

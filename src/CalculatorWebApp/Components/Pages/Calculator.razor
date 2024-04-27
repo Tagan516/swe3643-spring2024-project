@@ -7,7 +7,7 @@
 <div class="calculator-container">
     <div style="width: 80%"><h1>Calculator</h1></div>
     <div style="width: 80%"><button @onclick="Reset">Clear</button></div>
-    <div class="@ResultBoxClass" title="Output Text"><b>@OutputText</b></div>
+    <div class="@ResultBoxClass" title="Output Text" style="white-space: pre-line"><b>@OutputText</b></div>
     <div style="width: 80%">
         <label for="inputA"><b>Input A</b></label><br/>
         <input placeholder="0" id="inputA" @bind:event="oninput" @bind:get="InputA" @bind:set="SetInputA"/>
@@ -190,7 +190,7 @@
         SetOutputText(_calculationResult.GetExpression());
         if (!_calculationResult.GetIsSuccess())
         {
-            OutputText += "\n" + _calculationResult.GetError();
+            OutputText += " " + _calculationResult.GetError();
         }
     }
     
@@ -247,7 +247,7 @@
         SetOutputText(_calculationResult.GetExpression());
         if (!_calculationResult.GetIsSuccess())
         {
-            OutputText += "\n" + _calculationResult.GetError();
+            OutputText += " " + _calculationResult.GetError();
         }
     }
     
@@ -266,7 +266,7 @@
         SetOutputText(_calculationResult.GetExpression());
         if (!_calculationResult.GetIsSuccess())
         {
-            OutputText += "\n" + _calculationResult.GetError();
+            OutputText += " " + _calculationResult.GetError();
         }
     }
     
@@ -356,7 +356,7 @@
         SetOutputText(_calculationResult.GetExpression());
         if (!_calculationResult.GetIsSuccess())
         {
-            OutputText += "\n" + _calculationResult.GetError();
+            OutputText += " " + _calculationResult.GetError();
         }
     }
 }
