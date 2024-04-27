@@ -167,7 +167,7 @@ public class CalculatorFunctions
         {
             finalResults.SetResult(0);
             finalResults.SetIsSuccess(false);
-            finalResults.SetDirectExpression((a + "! =\nNot a number"));
+            finalResults.SetDirectExpression((a + "! =\nNot a Number"));
             finalResults.SetError("Factorials of negative numbers are undefined.");
             return finalResults;
         }
