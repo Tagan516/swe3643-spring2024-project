@@ -40,16 +40,16 @@ To prepare your environment to execute this application:
 
 To configure Playwright for end-to-end testing:
 1. Navigate to CalculatorEndToEndTests in the project directory in a terminal/command prompt.
-2. Enter command `dotnet add package Microsoft.Playwright.NUnit` without the single quotes, and hit enter
+2. Enter command `dotnet add package Microsoft.Playwright.NUnit`
 3. Enter command `dotnet build`
-4. Enter command `pwsh bin/Debug/net8.0/playwright.ps1 install`. If this gives an error that pwsh is not recognized, then <a href="learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4" target="_blank">download powershell</a>. After downloading, you may need to open a new terminal window.
+4. Enter command `pwsh bin/Debug/net8.0/playwright.ps1 install`. If this gives an error that pwsh is not recognized, then <a href="learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4" target="_blank">download powershell</a>. After downloading, you may need to open a new terminal window before 'pwsh' is recognized.
 5. In a new terminal window, navigate to CalculatorWebApp and enter `dotnet run`
-6. In the window that is in the CalculatorEndToEndTests, enter command `dotnet test --filter "EndToEndTests`
-7. If the the Add test fails rerun the tests. For some reason it fails, then passes.
+6. In the window that is in the CalculatorEndToEndTests, enter command `dotnet test`
+7. If the the Add test fails rerun the tests. For some reason it fails on the first execution, then passes.
 
 ## Executing the Web Application
 1. Navigate to the CalculatorWebApp directory in terminal/command prompt. (ex: C:\Users\\`user`\\RiderProjects\swe3643-spring2024-project\src\CalculatorWebApp)
-2. Enter command `dotnet run` into the terminal.
+2. Enter command `dotnet run`
 3. Terminal will output the localhost address (typically http://localhost:5113)
 ```
 info: Microsoft.Hosting.Lifetime[14]
