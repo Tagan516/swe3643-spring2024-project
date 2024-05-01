@@ -4,7 +4,7 @@ numerical input from the user and performs basic calculations with the input bas
 Then, the application displays the full mathematical expression along with the answer in the result text output.
 The application also contains unit tests that achieve 100% coverage of the calculator mathematical operations through
 NUnit and performs end-to-end testing through the Calculator's UI with Playwright. The repository also contains a
-CalculatorEngine project that contains all the calculator functionality.
+CalculatorEngine project that houses all the calculator functionality.
 
 ## Table of Contents
 - [Environment](#environment)
