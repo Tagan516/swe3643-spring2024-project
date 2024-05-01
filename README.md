@@ -22,7 +22,7 @@ The architecture is meant to be lightly coupled. The CalculatorEngine project co
 references the CalculationResult class to return an object type that is more usable. The CalculatorEngineUnitTests
 project contains a class CalculatorFunctionUnitTests that references the CalculatorFunctions class for testing. 
 The CalculatorWebApp project contains a single blazor page Calculator that references the CalculatorFunctions class
-to request calculations from the CalculatorFunctions class. The CalculatorEndToEndTests project contains the EndToEndTests class that
+to request calculations. The CalculatorEndToEndTests project contains the EndToEndTests class that
 references the Calculator blazor page through a headless browser to perform end to end testing.
 
 ![Project Architecture Diagram](/ReadmeAssets/CalculatorWebAppArchitecture_TaganWilliamson.png "Project Architecture Diagram")
