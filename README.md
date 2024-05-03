@@ -4,7 +4,7 @@ numerical input from the user and performs basic calculations with the input bas
 Then, the application displays the full mathematical expression along with the answer in the result text output.
 The application also contains unit tests that achieve 100% coverage of the calculator mathematical operations through
 NUnit and performs end-to-end testing through the Calculator's UI with Playwright. The repository also contains a
-CalculatorEngine project that contains all the calculator functionality.
+CalculatorEngine project that houses all the calculator functionality.
 
 ## Table of Contents
 - [Environment](#environment)
@@ -22,7 +22,7 @@ The architecture is meant to be lightly coupled. The CalculatorEngine project co
 references the CalculationResult class to return an object type that is more usable. The CalculatorEngineUnitTests
 project contains a class CalculatorFunctionUnitTests that references the CalculatorFunctions class for testing. 
 The CalculatorWebApp project contains a single blazor page Calculator that references the CalculatorFunctions class
-to request calculations from the CalculatorFunctions class. The CalculatorEndToEndTests project contains the EndToEndTests class that
+to request calculations. The CalculatorEndToEndTests project contains the EndToEndTests class that
 references the Calculator blazor page through a headless browser to perform end to end testing.
 
 ![Project Architecture Diagram](/ReadmeAssets/CalculatorWebAppArchitecture_TaganWilliamson.png "Project Architecture Diagram")
@@ -40,16 +40,16 @@ To prepare your environment to execute this application:
 
 To configure Playwright for end-to-end testing:
 1. Navigate to CalculatorEndToEndTests in the project directory in a terminal/command prompt.
-2. Enter command `dotnet add package Microsoft.Playwright.NUnit` without the single quotes, and hit enter
+2. Enter command `dotnet add package Microsoft.Playwright.NUnit`
 3. Enter command `dotnet build`
-4. Enter command `pwsh bin/Debug/net8.0/playwright.ps1 install`. If this gives an error that pwsh is not recognized, then <a href="learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4" target="_blank">download powershell</a>. After downloading, you may need to open a new terminal window.
+4. Enter command `pwsh bin/Debug/net8.0/playwright.ps1 install`. If this gives an error that pwsh is not recognized, then <a href="learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4" target="_blank">download powershell</a>. After downloading, you may need to open a new terminal window before 'pwsh' is recognized.
 5. In a new terminal window, navigate to CalculatorWebApp and enter `dotnet run`
-6. In the window that is in the CalculatorEndToEndTests, enter command `dotnet test --filter "EndToEndTests`
-7. If the the Add test fails rerun the tests. For some reason it fails, then passes.
+6. In the window that is in the CalculatorEndToEndTests, enter command `dotnet test`
+7. If the the Add test fails rerun the tests. For some reason it fails on the first execution, then passes.
 
 ## Executing the Web Application
 1. Navigate to the CalculatorWebApp directory in terminal/command prompt. (ex: C:\Users\\`user`\\RiderProjects\swe3643-spring2024-project\src\CalculatorWebApp)
-2. Enter command `dotnet run` into the terminal.
+2. Enter command `dotnet run`
 3. Terminal will output the localhost address (typically http://localhost:5113)
 ```
 info: Microsoft.Hosting.Lifetime[14]
