@@ -5,35 +5,39 @@
 <PageTitle>Calculator</PageTitle>
 
 <div class="calculator-container">
-    <div style="width: 80%"><h1>Calculator</h1></div>
-    <div style="width: 80%"><button @onclick="Reset">Clear</button></div>
-    <div class="@ResultBoxClass" title="Output Text" style="white-space: pre-line"><b>@OutputText</b></div>
-    <div style="width: 80%">
+    <div class="column-one"><h1>Calculator</h1></div>
+    <div class="clear-button"><button @onclick="Reset">Clear</button></div>
+    
+    <div class="result-container">
+        <div class="@ResultBoxClass" title="Output Text" style="white-space: pre-line"><b>@OutputText</b></div>
+    </div>
+    
+    <div class="column-one">
         <label for="inputA"><b>Input A</b></label><br/>
         <input placeholder="0" id="inputA" @bind:event="oninput" @bind:get="InputA" @bind:set="SetInputA"/>
     </div>
-    <div style="width: 80%">
+    <div class="column-one">
         <label for="inputB"><b>Input B</b></label><br/>
         <input placeholder="0" id="inputB" @bind:event="oninput" @bind:get="InputB" @bind:set="SetInputB"/>
     </div>
-    <div style="width: 80%">
+    <div class="column-one">
         <p class="header"><b>A and B</b></p>
-        <button @onclick="Add">A + B</button>
-        <button @onclick="Subtract">A - B</button>
-        <button @onclick="Multiply">A * B</button>
-        <button @onclick="Divide">A / B</button>
-        <button @onclick="Equals">A == B</button>
-        <button @onclick="RaiseToPower">A ^ B</button>
-        <button @onclick="Log">A log B</button>
-        <button @onclick="Root">A root B</button>
+        <button class="calc-button" @onclick="Add">A + B</button>
+        <button class="calc-button" @onclick="Subtract">A - B</button>
+        <button class="calc-button" @onclick="Multiply">A * B</button>
+        <button class="calc-button" @onclick="Divide">A / B</button>
+        <button class="calc-button" @onclick="Equals">A == B</button>
+        <button class="calc-button" @onclick="RaiseToPower">A ^ B</button>
+        <button class="calc-button" @onclick="Log">A log B</button>
+        <button class="calc-button" @onclick="Root">A root B</button>
     </div>
-    <div style="width: 80%">
+    <div class="column-one">
         <p class="header"><b>A only</b></p>
-        <button @onclick="Factorial">A!</button>
-        <button @onclick="Sine">sinA</button>
-        <button @onclick="Cosine">cosA</button>
-        <button @onclick="Tangent">tanA</button>
-        <button @onclick="Reciprocal">1/A</button>
+        <button class="calc-button" @onclick="Factorial">A!</button>
+        <button class="calc-button" @onclick="Sine">sinA</button>
+        <button class="calc-button" @onclick="Cosine">cosA</button>
+        <button class="calc-button" @onclick="Tangent">tanA</button>
+        <button class="calc-button" @onclick="Reciprocal">1/A</button>
     </div>
 </div>
 
